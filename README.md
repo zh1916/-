@@ -1,5 +1,6 @@
 本次设计的题目是学生成绩管理系统，其主要实现功能如下图所示：
 ![image](https://user-images.githubusercontent.com/121162814/209548460-4ad8c296-7a10-44ff-b030-00b78800f8d5.png)
+
 本程序包含9个函数：
 1.增加学生信息
 void add();
@@ -20,3 +21,4 @@ void readList();
 9.按成绩排序，采用冒泡排序实现
 void sort();
 ![image](https://user-images.githubusercontent.com/121162814/209547116-3028606f-f5b8-4518-8d09-6f83f95204a7.png)
+![image](https://user-images.githubusercontent.com/121162814/209549321-ef4aa2aa-a984-4269-8336-2213142ea8fa.png)
