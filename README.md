@@ -20,5 +20,7 @@ void saveList();
 void readList();
 9.按成绩排序，采用冒泡排序实现
 void sort();
+
 ![image](https://user-images.githubusercontent.com/121162814/209547116-3028606f-f5b8-4518-8d09-6f83f95204a7.png)
+
 ![image](https://user-images.githubusercontent.com/121162814/209549321-ef4aa2aa-a984-4269-8336-2213142ea8fa.png)
