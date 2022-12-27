@@ -1,0 +1,73 @@
+void search()
+{
+
+	printf("==========查找信息=========\n");
+	printf("1.按照学号查询\n");
+	printf("2.按照姓名查询\n");
+	printf("请输入你的选择：\n");
+	int ch;
+	scanf("%d",&ch);
+	if (ch == 1)
+	{
+		printf("请输入你要查找的学号：\n");
+		char id[20];
+		int a = 1;
+		scanf("%s", id);
+		for (int i = 0; i < temp_number; i++)
+		{
+			if (!strcmp(id, s[i].id))
+			{
+
+				printf("学号：%s\t", s[i].id);
+				printf("姓名：%s\t", s[i].name);
+				printf("性别：%s\t", s[i].sex);
+				printf("年龄：%d\t", s[i].age);
+				printf("语文成绩：%0.2f\t", s[i].chinese);
+				printf("数学成绩：%0.2f\n", s[i].math);
+				a = 0;
+				break;
+			}
+		}
+		if (a == 1)
+		{
+			printf("没有该信息！\n");
+		}
+		printf("=======查找结束======\n");
+	}
+	else if (ch == 2)
+	{
+		printf("请输入你要查找的姓名：\n");
+		char name[20];
+		int a = 1;
+		scanf("%s", name);
+		for (int i = 0; i < temp_number; i++)
+		{
+			if (!strcmp(name, s[i].name))
+			{
+
+				printf("学号：%s\t", s[i].id);
+				printf("姓名：%s\t", s[i].name);
+				printf("性别：%s\t", s[i].sex);
+				printf("年龄：%d\t", s[i].age);
+				printf("语文成绩：%0.2f\t", s[i].chinese);
+				printf("数学成绩：%0.2f\n", s[i].math);
+				a = 0;
+				break;
+			}
+		}
+		if (a == 1)
+		{
+			printf("没有该信息！\n");
+		}
+		printf("=======查找结束======\n");
+	}
+	else
+	{
+		printf("输入有误！\n");
+		return;
+	}
+	
+
+	
+
+}
