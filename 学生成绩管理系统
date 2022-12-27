@@ -1,4 +1,21 @@
 //这是一个学生成绩管理系统。
+
+#include<stdio.h>
+#define MAX 100
+typedef struct Student
+{
+	char id[20];//学号
+	char name[20];//姓名
+	char sex[20];//性别
+	int age;//年龄
+	float chinese;//语文成绩
+	float math;//数学成绩
+}Student;
+
+//存放学生信息的顺序表
+Student s[MAX];
+int temp_number = 0;
+
 //增加信息
 void add()
 {
