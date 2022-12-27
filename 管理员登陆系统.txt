@@ -9,7 +9,7 @@ int teacher_login()
 	scanf("%s", s_password);
 
 
-	if (!strcmp(s_id, "admin") && !strcmp(s_password, "123"))
+	if (!strcmp(s_id, "ctgu") && !strcmp(s_password, "123"))
 	{
 		temp++;
 		printf("登录成功！\n");
