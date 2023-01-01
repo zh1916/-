@@ -144,3 +144,64 @@ void student_menu()
 	printf("=        0.退出系统             =\n");
 	printf("=================================\n");
 }
+//增加信息
+void add()
+{
+	printf("==========增加信息=========\n");
+
+	printf("请输入学号：\n");
+	scanf("%s", s[temp_number].id);
+	for (int i = 0; i < temp_number; i++)
+	{
+		if (!strcmp(s[temp_number].id, s[i].id))
+		{
+			printf("存在该学号，添加失败！\n");
+			return;
+		}
+	}
+	printf("请输入姓名：\n");
+	scanf("%s", s[temp_number].name);
+	printf("请输入性别：\n");
+	scanf("%s", s[temp_number].sex);
+	printf("请输入密码：\n");
+	scanf("%s", s[temp_number].pwd);
+	temp_number++;
+	printf("=======添加信息成功======\n");
+}
+//增加成绩
+void add_score()
+{
+
+	int temp = 0;
+	printf("请输入学号：\n");
+	scanf("%s", score[number].id);
+	for (int i = 0; i < temp_number; i++)
+	{
+		if (!strcmp(score[number].id, s[i].id))
+		{
+			temp++;
+		}
+	}
+
+	if (temp == 0)
+	{
+		printf("不存在该信息，添加失败\n");
+		return;
+	}
+
+	for (int i = 0; i < number; i++)
+	{
+		if (!strcmp(score[number].id, score[i].id))
+		{
+			printf("已经添加该学生成绩信息，添加失败！\n");
+			return;
+		}
+	}
+
+	printf("请输入语文成绩：\n");
+	scanf("%f", &score[number].chinese);
+	printf("请输入数学成绩：\n");
+	scanf("%f", &score[number].math);
+	number++;
+	printf("=======添加信息成功======\n");
+}
