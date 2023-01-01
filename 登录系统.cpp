@@ -54,3 +54,32 @@ int teacher_login()
 	}
 
 }
+//学生
+int stu_login()
+{
+	char s_id[20];
+	char s_password[20];
+	int temp = 0;
+	printf("请输入学号：\n");
+	scanf("%s", s_id);
+	printf("请输入密码：\n");
+	scanf("%s", s_password);
+
+	for (int i = 0; i < temp_number; i++)
+	{
+		if (!strcmp(s_id, s[i].id)&& !strcmp(s_password, s[i].pwd))
+		{
+			temp++;
+			printf("登陆成功！\n");
+			return i;
+		}
+	}
+
+
+	if (temp == 0)
+	{
+		printf("账号或者密码错误，登录失败！\n");
+		return -1;
+	}
+
+}
