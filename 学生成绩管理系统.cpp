@@ -1,8 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-#include<Windows.h>
-#include<mmsystem.h>
 #define MAX 100
 typedef struct Student
 {
@@ -204,4 +202,301 @@ void add_score()
 	scanf("%f", &score[number].math);
 	number++;
 	printf("=======添加信息成功======\n");
+}
+//显示信息
+void showAll()
+{
+	printf("==========显示信息=========\n");
+	for (int i = 0; i < temp_number; i++)
+	{
+		printf("学号：%s\t", s[i].id);
+		printf("姓名：%s\t", s[i].name);
+		printf("性别：%s\t", s[i].sex);
+		printf("密码：%s\t", s[i].pwd);
+	}
+	printf("=======显示信息结束======\n");
+}
+//显示成绩
+void show_score()
+{
+	printf("==========显示成绩=========\n");
+	for (int i = 0; i < number; i++)
+	{
+		printf("学号：%s\t", score[i].id);
+		printf("语文成绩：%0.2f\t", score[i].chinese);
+		printf("数学成绩：%0.2f\n", score[i].math);
+	}
+	printf("=======显示信息结束======\n");
+}
+//查找信息
+void search()
+{
+
+	printf("==========查找信息=========\n");
+	printf("1.按照学号查询\n");
+	printf("2.按照姓名查询\n");
+	printf("请输入你的选择：\n");
+	int ch;
+	scanf("%d",&ch);
+	if (ch == 1)
+	{
+		printf("请输入你要查找的学号：\n");
+		char id[20];
+		int a = 1;
+		scanf("%s", id);
+		for (int i = 0; i < temp_number; i++)
+		{
+			if (!strcmp(id, s[i].id))
+			{
+
+				printf("学号：%s\t", s[i].id);
+				printf("姓名：%s\t", s[i].name);
+				printf("性别：%s\t", s[i].sex);
+				printf("密码：%s\t", s[i].pwd);
+				a = 0;
+				break;
+			}
+		}
+		if (a == 1)
+		{
+			printf("没有该信息！\n");
+		}
+		printf("=======查找结束======\n");
+	}
+	else if (ch == 2)
+	{
+		printf("请输入你要查找的姓名：\n");
+		char name[20];
+		int a = 1;
+		scanf("%s", name);
+		for (int i = 0; i < temp_number; i++)
+		{
+			if (!strcmp(name, s[i].name))
+			{
+
+				printf("学号：%s\t", s[i].id);
+				printf("姓名：%s\t", s[i].name);
+				printf("性别：%s\t", s[i].sex);
+				printf("密码：%s\t", s[i].pwd);
+				a = 0;
+				break;
+			}
+		}
+		if (a == 1)
+		{
+			printf("没有该信息！\n");
+		}
+		printf("=======查找结束======\n");
+	}
+	else
+	{
+		printf("输入有误！\n");
+		return;
+	}
+	
+
+	
+
+}
+//查找成绩
+void search_score()
+{
+
+	printf("请输入你要查找的学号：\n");
+	char id[20];
+	int a = 1;
+	scanf("%s", id);
+	for (int i = 0; i < number; i++)
+	{
+		if (!strcmp(id, score[i].id))
+		{
+
+			printf("学号：%s\t", score[i].id);
+			printf("语文成绩：%0.2f\t", score[i].chinese);
+			printf("数学成绩：%0.2f\n", score[i].math);
+			a = 0;
+			break;
+		}
+	}
+	if (a == 1)
+	{
+		printf("没有该信息！\n");
+	}
+	printf("=======查找结束======\n");
+
+
+
+}
+//统计信息
+void countList()
+{
+	printf("==========统计信息=========\n");
+	printf("学生数量为：%d\n", temp_number);
+
+	for (int i = 0; i < number; i++)
+	{
+		printf("学号：%s\t", score[i].id);
+		printf("总成绩：%0.2f\n", score[i].chinese+ score[i].math);
+	}
+	printf("=======统计结束======\n");
+
+}
+//修改信息
+void modify()
+{
+	printf("==========修改信息=========\n");
+	printf("请输入你要修改的学号：\n");
+	char id[20];
+	int a = 1;
+	scanf("%s", id);
+	for (int i = 0; i < temp_number; i++)
+	{
+		if (!strcmp(id, s[i].id))
+		{
+			printf("请输入姓名：\n");
+			scanf("%s", s[i].name);
+			printf("请输入性别：\n");
+			scanf("%s", s[i].sex);
+			printf("请输入密码：\n");
+			scanf("%s", s[i].pwd);
+
+			a = 0;
+			break;
+		}
+	}
+	if (a == 1)
+	{
+		printf("没有该信息，修改失败！\n");
+	}
+
+	printf("=======修改信息完毕======\n");
+}
+//修改成绩
+void modify_score()
+{
+	printf("==========修改信息=========\n");
+	printf("请输入你要修改的学号：\n");
+	char id[20];
+	int a = 1;
+	scanf("%s", id);
+	for (int i = 0; i < number; i++)
+	{
+		if (!strcmp(id, s[i].id))
+		{
+
+			printf("请输入语文成绩：\n");
+			scanf("%f", &score[i].chinese);
+			printf("请输入数学成绩：\n");
+			scanf("%f", &score[i].math);
+			a = 0;
+			break;
+		}
+	}
+	if (a == 1)
+	{
+		printf("没有该信息，修改失败！\n");
+	}
+
+	printf("=======修改信息完毕======\n");
+}
+//删除信息
+void del()
+{
+	printf("==========删除信息=========\n");
+	printf("请输入你要删除的学号：\n");
+	char id[20];
+	int a = 1;
+	scanf("%s", id);
+	for (int i = 0; i < temp_number; i++)
+	{
+		if (!strcmp(id, s[i].id))
+		{
+			a = 0;
+			for (int j = i; j < temp_number - 1; j++)
+			{
+				s[j] = s[j + 1];
+			}
+			temp_number--;
+			printf("删除成功！\n");
+			break;
+		}
+	}
+
+	if (a == 1)
+	{
+		printf("没有该信息！\n");
+	}
+	printf("=======删除结束======\n");
+}
+//删除成绩
+void del_score()
+{
+	printf("==========删除信息=========\n");
+	printf("请输入你要删除的学号：\n");
+	char id[20];
+	int a = 1;
+	scanf("%s", id);
+	for (int i = 0; i < number; i++)
+	{
+		if (!strcmp(id, score[i].id))
+		{
+			a = 0;
+			for (int j = i; j < number - 1; j++)
+			{
+				score[j] = score[j + 1];
+			}
+			number--;
+			printf("删除成功！\n");
+			break;
+		}
+	}
+
+	if (a == 1)
+	{
+		printf("没有该信息！\n");
+	}
+	printf("=======删除结束======\n");
+}
+//信息保存文件
+void saveList()
+{
+	FILE* file;
+	if ((file = fopen("student.txt", "w")) == NULL)
+	{
+		printf("文件打开失败！");
+		exit(0);
+	}
+
+	for (int i = 0; i < temp_number; i++)
+	{
+		fprintf(file, "%s  ", s[i].id);
+		fprintf(file, "%s  ", s[i].name);
+		fprintf(file, "%s  ", s[i].sex);
+		fprintf(file, "%s\n", s[i].pwd);
+	}
+	fclose(file);
+	printf("文件保存成功！\n");
+
+
+}
+//成绩保存文件
+void save_score()
+{
+	FILE* file;
+	if ((file = fopen("score.txt", "w")) == NULL)
+	{
+		printf("文件打开失败！");
+		exit(0);
+	}
+
+	for (int i = 0; i < number; i++)
+	{
+		fprintf(file, "%s  ", score[i].id);
+		fprintf(file, "%f  ", score[i].chinese);
+		fprintf(file, "%f\n", score[i].math);
+	}
+	fclose(file);
+	printf("文件保存成功！\n");
+
+
 }
